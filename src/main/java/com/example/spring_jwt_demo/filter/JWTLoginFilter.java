@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
@@ -47,7 +48,7 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
                 new UsernamePasswordAuthenticationToken(
                         creds.getUsername(),
                         creds.getPassword(),
-                        new ArrayList<>()
+                        Collections.emptyList()
                 )
         );
     }

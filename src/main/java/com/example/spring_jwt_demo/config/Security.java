@@ -29,12 +29,17 @@ public class Security extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {return new BCryptPasswordEncoder();}
 
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userService);
-        provider.setPasswordEncoder(passwordEncoder());
-        return provider;
+//    @Bean
+//    public DaoAuthenticationProvider authenticationProvider() {
+//        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+//        provider.setUserDetailsService(userService);
+//        provider.setPasswordEncoder(passwordEncoder());
+//        return provider;
+//    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 
     @Override

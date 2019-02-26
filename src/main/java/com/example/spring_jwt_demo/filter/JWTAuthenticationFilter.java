@@ -22,7 +22,7 @@ import java.util.List;
 @Component
 public class JWTAuthenticationFilter  extends GenericFilterBean {
 
-    
+
     @Autowired
     private UserService userService;
 
